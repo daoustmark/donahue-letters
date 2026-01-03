@@ -20,6 +20,7 @@ export default function ArchivePage() {
     excerpt: letter.excerpt,
     themes: letter.themes,
     document_type: letter.document_type,
+    places_mentioned: letter.places_mentioned,
   }))
 
   const allThemes = getAllThemes()

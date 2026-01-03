@@ -15,6 +15,7 @@ interface LetterSummary {
   excerpt: string
   themes: string[]
   document_type?: string
+  places_mentioned: string[]
 }
 
 interface ArchiveClientProps {
@@ -138,10 +139,12 @@ function LetterCard({ letter, viewMode }: { letter: LetterSummary; viewMode: 'gr
 export default function ArchiveClient({ letters, allThemes, allYears }: ArchiveClientProps) {
   const searchParams = useSearchParams()
   const initialTheme = searchParams.get('theme') || ''
+  const initialLocation = searchParams.get('location') || ''
 
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedTheme, setSelectedTheme] = useState(initialTheme)
   const [selectedYear, setSelectedYear] = useState('')
+  const [selectedLocation, setSelectedLocation] = useState(initialLocation)
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
   const filteredLetters = useMemo(() => {
@@ -170,17 +173,33 @@ export default function ArchiveClient({ letters, allThemes, allYears }: ArchiveC
         if (letterYear !== selectedYear) return false
       }
 
+      // Location filter - check location field and places_mentioned
+      if (selectedLocation) {
+        const locationLower = selectedLocation.toLowerCase()
+        const letterLocation = letter.location?.toLowerCase() || ''
+        // Match if location contains the filter, or if place is in places_mentioned
+        const matchesLocation =
+          letterLocation.includes(locationLower) ||
+          letterLocation.includes(locationLower.replace(/-/g, ' ')) ||
+          letter.places_mentioned.some(place =>
+            place.toLowerCase() === locationLower ||
+            place.toLowerCase().includes(locationLower)
+          )
+        if (!matchesLocation) return false
+      }
+
       return true
     })
-  }, [letters, searchQuery, selectedTheme, selectedYear])
+  }, [letters, searchQuery, selectedTheme, selectedYear, selectedLocation])
 
   const clearFilters = () => {
     setSearchQuery('')
     setSelectedTheme('')
     setSelectedYear('')
+    setSelectedLocation('')
   }
 
-  const hasFilters = searchQuery || selectedTheme || selectedYear
+  const hasFilters = searchQuery || selectedTheme || selectedYear || selectedLocation
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -255,6 +274,18 @@ export default function ArchiveClient({ letters, allThemes, allYears }: ArchiveC
           <div className="flex items-center gap-4">
             <p className="text-sm text-gray-600">
               Showing {filteredLetters.length} of {letters.length} documents
+              {selectedLocation && (
+                <span className="ml-2 inline-flex items-center gap-1 bg-olive-100 text-olive-700 px-2 py-0.5 rounded text-xs">
+                  Location: {selectedLocation.replace(/-/g, ' ')}
+                  <button
+                    onClick={() => setSelectedLocation('')}
+                    className="hover:text-olive-900 font-bold"
+                    aria-label="Clear location filter"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
             </p>
             {hasFilters && (
               <button

@@ -1,38 +1,38 @@
 import Link from 'next/link'
 import { getAllLettersChronological } from '@/lib/content'
+import { getPlacesWithLetterCounts, getRouteWaypoints } from '@/lib/places'
+import MapClient from './map-client'
 
 export const metadata = {
   title: 'Map | The Donahue Letters',
   description: 'Explore the geographic journey of the 985th Field Artillery Battalion through Italy.',
 }
 
-// Known places from the letters with coordinates
-const places = [
-  { id: 'naples', name: 'Naples', lat: 40.8518, lng: 14.2681, country: 'Italy', mentions: 5 },
-  { id: 'rome', name: 'Rome', lat: 41.9028, lng: 12.4964, country: 'Italy', mentions: 8 },
-  { id: 'cassino', name: 'Cassino', lat: 41.4867, lng: 13.8308, country: 'Italy', mentions: 3 },
-  { id: 'venice', name: 'Venice', lat: 45.4408, lng: 12.3155, country: 'Italy', mentions: 1 },
-  { id: 'north-africa', name: 'North Africa', lat: 36.8065, lng: 10.1815, country: 'Tunisia', mentions: 2 },
-  { id: 'janesville', name: 'Janesville', lat: 42.6828, lng: -89.0187, country: 'USA', mentions: 1 },
-  { id: 'milwaukee', name: 'Milwaukee', lat: 43.0389, lng: -87.9065, country: 'USA', mentions: 3 },
-]
-
-// Route of the 985th Field Artillery Battalion
-const battalionRoute = [
-  { name: 'Training in USA', date: 'Early 1943' },
-  { name: 'North Africa', date: 'August 1943' },
-  { name: 'Salerno Landing', date: 'September 1943' },
-  { name: 'Naples Area', date: 'October 1943' },
-  { name: 'Cassino Front', date: 'Winter 1943-44' },
-  { name: 'Rome Liberation', date: 'June 1944' },
-  { name: 'Northern Italy', date: 'Late 1944-1945' },
-  { name: 'Post-War Italy', date: 'May-August 1945' },
-]
-
 export default function MapPage() {
   const letters = getAllLettersChronological()
 
-  // Count letters by location
+  // Load map data from JSON files
+  const placesWithCounts = getPlacesWithLetterCounts()
+  const waypoints = getRouteWaypoints()
+
+  // Format places for the map component
+  const mapPlaces = placesWithCounts.map((place) => ({
+    id: place.id,
+    name: place.name,
+    coordinates: place.coordinates,
+    letterCount: place.letterCount,
+    description: place.description,
+  }))
+
+  // Format waypoints for the map component
+  const mapWaypoints = waypoints.map((waypoint) => ({
+    id: waypoint.id,
+    name: waypoint.name,
+    coordinates: waypoint.coordinates,
+    description: waypoint.description,
+  }))
+
+  // Count letters by location for the "Letters by Location" section
   const locationCounts: Record<string, number> = {}
   letters.forEach((letter) => {
     if (letter.location) {
@@ -51,17 +51,12 @@ export default function MapPage() {
         </p>
       </header>
 
-      {/* Map placeholder */}
-      <div className="paper p-8 mb-8">
-        <div className="bg-sepia-100 rounded-lg h-96 flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-6xl mb-4">🗺️</div>
-            <p className="text-gray-600 mb-2">Interactive map coming soon</p>
-            <p className="text-sm text-gray-500">
-              An interactive map will show the battalion's journey through Italy
-            </p>
-          </div>
-        </div>
+      {/* Interactive Map */}
+      <div className="paper p-4 mb-8">
+        <MapClient places={mapPlaces} waypoints={mapWaypoints} />
+        <p className="text-xs text-gray-500 mt-2 text-center">
+          Click on markers to see more details. The dashed line shows the battalion's route.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -69,23 +64,27 @@ export default function MapPage() {
         <section className="paper p-6">
           <h2 className="font-display text-2xl text-olive-800 mb-4">Places Mentioned</h2>
           <div className="space-y-3">
-            {places.map((place) => (
-              <div
-                key={place.id}
-                className="flex items-center justify-between p-3 bg-sepia-50 rounded hover:bg-sepia-100 transition-colors"
-              >
-                <div>
-                  <p className="font-medium text-gray-800">{place.name}</p>
-                  <p className="text-sm text-gray-500">{place.country}</p>
+            {placesWithCounts
+              .filter((place) => place.letterCount > 0)
+              .sort((a, b) => b.letterCount - a.letterCount)
+              .map((place) => (
+                <div
+                  key={place.id}
+                  className="flex items-center justify-between p-3 bg-sepia-50 rounded hover:bg-sepia-100 transition-colors"
+                >
+                  <div>
+                    <p className="font-medium text-gray-800">{place.name}</p>
+                    <p className="text-sm text-gray-500">{place.country}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-olive-600">{place.letterCount} mentions</p>
+                    <p className="text-xs text-gray-400">
+                      {place.coordinates.lat.toFixed(2)}°N, {Math.abs(place.coordinates.lng).toFixed(2)}°
+                      {place.coordinates.lng >= 0 ? 'E' : 'W'}
+                    </p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm text-olive-600">{place.mentions} mentions</p>
-                  <p className="text-xs text-gray-400">
-                    {place.lat.toFixed(2)}°N, {Math.abs(place.lng).toFixed(2)}°{place.lng >= 0 ? 'E' : 'W'}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </section>
 
@@ -96,19 +95,19 @@ export default function MapPage() {
             The 985th Field Artillery Battalion's journey through the war.
           </p>
           <div className="space-y-0">
-            {battalionRoute.map((stop, index) => (
-              <div key={stop.name} className="flex gap-4">
+            {waypoints.map((waypoint, index) => (
+              <div key={waypoint.id} className="flex gap-4">
                 {/* Route line */}
                 <div className="flex flex-col items-center">
                   <div className="w-3 h-3 rounded-full bg-olive-500 border-2 border-olive-600" />
-                  {index < battalionRoute.length - 1 && (
+                  {index < waypoints.length - 1 && (
                     <div className="w-0.5 bg-olive-300 flex-1 min-h-8" />
                   )}
                 </div>
                 {/* Content */}
                 <div className="pb-4">
-                  <p className="font-medium text-gray-800">{stop.name}</p>
-                  <p className="text-sm text-gray-500">{stop.date}</p>
+                  <p className="font-medium text-gray-800">{waypoint.name}</p>
+                  <p className="text-sm text-gray-500">{waypoint.description}</p>
                 </div>
               </div>
             ))}

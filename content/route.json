@@ -1,0 +1,68 @@
+{
+  "waypoints": [
+    {
+      "id": "fort-sill",
+      "name": "Fort Sill, Oklahoma",
+      "coordinates": { "lat": 34.65, "lng": -98.40 },
+      "arrivalDate": null,
+      "departureDate": "1943-07-01",
+      "description": "Training with 985th Field Artillery Battalion before overseas deployment"
+    },
+    {
+      "id": "north-africa",
+      "name": "North Africa (Tunisia)",
+      "coordinates": { "lat": 36.80, "lng": 10.18 },
+      "arrivalDate": "1943-08-08",
+      "departureDate": "1943-09-01",
+      "description": "Staging area in North Africa before Italian Campaign"
+    },
+    {
+      "id": "salerno",
+      "name": "Salerno, Italy",
+      "coordinates": { "lat": 40.68, "lng": 14.77 },
+      "arrivalDate": "1943-09-09",
+      "departureDate": "1943-10-01",
+      "description": "Allied landing at Salerno as part of Operation Avalanche"
+    },
+    {
+      "id": "naples",
+      "name": "Naples, Italy",
+      "coordinates": { "lat": 40.85, "lng": 14.27 },
+      "arrivalDate": "1943-10-01",
+      "departureDate": "1944-01-01",
+      "description": "Operations in Naples area after city's liberation"
+    },
+    {
+      "id": "cassino",
+      "name": "Monte Cassino Front",
+      "coordinates": { "lat": 41.49, "lng": 13.83 },
+      "arrivalDate": "1944-01-01",
+      "departureDate": "1944-05-18",
+      "description": "Winter Line battles at the Gustav Line near Monte Cassino"
+    },
+    {
+      "id": "rome",
+      "name": "Rome, Italy",
+      "coordinates": { "lat": 41.90, "lng": 12.50 },
+      "arrivalDate": "1944-06-04",
+      "departureDate": "1944-07-01",
+      "description": "Liberation of Rome; papal audience at the Vatican"
+    },
+    {
+      "id": "florence",
+      "name": "Florence Area, Northern Italy",
+      "coordinates": { "lat": 43.77, "lng": 11.25 },
+      "arrivalDate": "1944-08-01",
+      "departureDate": "1945-04-01",
+      "description": "Advance through northern Italy, Gothic Line operations"
+    },
+    {
+      "id": "venice",
+      "name": "Venice, Italy",
+      "coordinates": { "lat": 45.44, "lng": 12.32 },
+      "arrivalDate": "1945-05-08",
+      "departureDate": "1945-08-01",
+      "description": "Post-war occupation; V-E Day celebration with gondola ride"
+    }
+  ]
+}
