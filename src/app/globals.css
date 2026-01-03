@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 253 248 243; /* sepia-50 */
+    --foreground: 55 65 81; /* gray-700 */
+  }
+
+  body {
+    @apply bg-sepia-50 text-gray-700;
+  }
+
+  /* Letter content styling */
+  .letter-content {
+    @apply font-serif text-lg leading-relaxed;
+  }
+
+  .letter-content p {
+    @apply my-6 indent-8 first:indent-0;
+  }
+
+  /* Vintage paper effect */
+  .paper {
+    @apply bg-sepia-100 rounded shadow-lg;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: soft-light;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-olive-600 text-white rounded hover:bg-olive-700 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-sepia-200 text-gray-800 rounded hover:bg-sepia-300 transition-colors;
+  }
+
+  .tag {
+    @apply inline-block px-2 py-1 text-sm bg-sepia-200 text-olive-800 rounded;
+  }
+
+  /* Navigation link styling */
+  .nav-link {
+    @apply text-olive-700 hover:text-olive-900 transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
