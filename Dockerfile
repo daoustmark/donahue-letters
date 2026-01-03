@@ -32,9 +32,7 @@ COPY --from=builder /app/.next/standalone ./
 
 USER nextjs
 
-EXPOSE 3000
-
-ENV PORT=3000
+# Railway provides PORT at runtime, no default needed
 ENV HOSTNAME="0.0.0.0"
 
 CMD ["node", "server.js"]
