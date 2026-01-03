@@ -147,7 +147,7 @@ export default function TimelinePage() {
   const allItems: TimelineItem[] = [
     ...letters.map((letter) => ({
       type: 'letter' as const,
-      date: letter.date,
+      date: typeof letter.date === 'string' ? letter.date : letter.date.toISOString().split('T')[0],
       letter,
     })),
     ...historicalEvents.map((event) => ({

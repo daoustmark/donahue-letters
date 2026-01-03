@@ -12,7 +12,7 @@ export default function ArchivePage() {
   const letters = getAllLettersChronological().map((letter) => ({
     id: letter.id,
     slug: letter.slug,
-    date: letter.date,
+    date: typeof letter.date === 'string' ? letter.date : letter.date.toISOString().split('T')[0],
     from: letter.from,
     to: letter.to,
     location: letter.location,
