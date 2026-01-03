@@ -9,17 +9,31 @@ MVP is complete and functional. The site has all core pages working:
 - 30 letters extracted from PDF into MDX files
 - Archive with search/filter
 - Timeline with historical events
-- Map placeholder with places data
+- **Interactive Map with Leaflet.js** (fully implemented)
 - Wiki index
 
 **The site runs at**: `npm run dev` → http://localhost:3000 (or next available port)
 
 ## Recent Work
 
+### 2026-01-03: Interactive Map Feature
+- Implemented full interactive map using Leaflet.js + react-leaflet v4
+- Created `content/places.json` with 10 locations (coordinates, descriptions)
+- Created `content/route.json` with 8 battalion waypoints
+- Built map components:
+  - `MapContainer.tsx` - Leaflet map with Stamen Terrain tiles + sepia filter
+  - `PlaceMarker.tsx` - CircleMarkers with popups showing place info and letter links
+  - `RouteLayer.tsx` - Dashed polyline showing battalion movement through Italy
+- Dynamic import with SSR disabled for Leaflet compatibility
+- Responsive design works on mobile
+- Places Mentioned section shows letter counts from actual data
+- Battalion Route section shows chronological journey with descriptions
+
 ### 2026-01-03: Initial Build
 - Extracted all 30 letters from source PDF into individual MDX files
 - Set up Next.js 14 with App Router and Tailwind CSS
 - Created content loading library (`src/lib/content.ts`)
+- Fixed date parsing bug (gray-matter returns Date objects, not strings)
 - Built all MVP pages:
   - Home with On This Day, featured letter, statistics
   - Individual letter pages with full content and navigation
@@ -33,10 +47,10 @@ MVP is complete and functional. The site has all core pages working:
 Priority items to work on:
 
 1. **Wiki detail pages** - Create actual pages for `/wiki/people/[slug]`, `/wiki/places/[slug]`, etc.
-2. **Interactive map** - Integrate Leaflet.js for actual map visualization
-3. **Full-text search** - Add Pagefind or Fuse.js for searching letter content
-4. **Historical context panels** - Add sidebar on letter pages showing what was happening in the war
-5. **About pages** - Create `/about`, `/about/family`, `/about/how-to-use`
+2. **Full-text search** - Add Pagefind or Fuse.js for searching letter content
+3. **Historical context panels** - Add sidebar on letter pages showing what was happening in the war
+4. **About pages** - Create `/about`, `/about/family`, `/about/how-to-use`
+5. **Map enhancements** - Layer toggles, date filtering, timeline sync (Phase 3-4 from plan)
 
 ## Technical Notes
 
@@ -51,6 +65,5 @@ Priority items to work on:
 - People mentioned are slugs - need people.json with full bios
 
 ### Known Issues
-- Map is placeholder only - no actual map rendering yet
 - Wiki pages link to detail pages that don't exist yet
 - Search only filters by metadata, not full letter content
