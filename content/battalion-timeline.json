@@ -1,0 +1,210 @@
+{
+  "unit": {
+    "designation": "985th Field Artillery Battalion",
+    "branch": "US Army",
+    "parentUnit": "5th Army",
+    "description": "Part of the 88th Infantry Division attachment and later the 1st Armored Division. Originally the 121st Field Artillery Regiment of the Wisconsin National Guard, redesignated as the 985th FA Battalion."
+  },
+  "statistics": {
+    "roundsFired": 131359,
+    "daysInCombat": 510,
+    "consecutiveFiringDays": 194,
+    "campaign": "Italian Campaign"
+  },
+  "events": [
+    {
+      "id": "bt-1943-08-08",
+      "date": "1943-08-08",
+      "title": "Arrival in North Africa",
+      "description": "985th Field Artillery Battalion arrives in Tunisia for staging before Italian Campaign.",
+      "location": "north-africa",
+      "scope": "unit",
+      "source": "On the Target, Summary of Operations"
+    },
+    {
+      "id": "bt-1943-09-09",
+      "date": "1943-09-09",
+      "title": "Salerno Landing",
+      "description": "Battalion participates in Operation Avalanche, the Allied amphibious landing at Salerno, Italy.",
+      "location": "salerno",
+      "scope": "unit",
+      "source": "On the Target, Summary of Operations"
+    },
+    {
+      "id": "bt-1943-10-28",
+      "date": "1943-10-28",
+      "title": "Arrives at Naples",
+      "description": "985th arrives at Naples harbor and moves to staging area near the city.",
+      "location": "naples",
+      "scope": "unit",
+      "source": "On the Target, p.10"
+    },
+    {
+      "id": "bt-1943-11-06",
+      "date": "1943-11-06",
+      "title": "First Fire Mission",
+      "description": "Battalion fires its first combat mission near Presenzano, beginning 510 days of combat operations.",
+      "location": "presenzano",
+      "scope": "unit",
+      "source": "On the Target, Summary of Operations"
+    },
+    {
+      "id": "bt-1943-11-15",
+      "date": "1943-11-15",
+      "title": "Winter Line Operations Begin",
+      "description": "Battalion enters Winter Line operations in the mountainous terrain south of Monte Cassino.",
+      "location": "cassino",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1943-12-15",
+      "date": "1943-12-15",
+      "title": "Supporting San Pietro Assault",
+      "description": "Heavy fire support for infantry assault on San Pietro Infine in the Liri Valley approach.",
+      "location": "san-pietro",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-01-12",
+      "date": "1944-01-12",
+      "title": "First Battle of Monte Cassino",
+      "description": "985th provides artillery support for the first Allied assault on the Gustav Line at Monte Cassino.",
+      "location": "cassino",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-02-15",
+      "date": "1944-02-15",
+      "title": "Cassino Abbey Bombed",
+      "description": "Allied bombers destroy Monte Cassino Abbey. 985th continues supporting ground operations.",
+      "location": "cassino",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-03-15",
+      "date": "1944-03-15",
+      "title": "Third Battle of Monte Cassino",
+      "description": "Massive artillery barrage supports third major assault on Cassino. 985th participates in the bombardment.",
+      "location": "cassino",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-05-11",
+      "date": "1944-05-11",
+      "title": "Operation Diadem Begins",
+      "description": "Final offensive to break Gustav Line. 985th fires in support of the breakthrough operation.",
+      "location": "cassino",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-05-18",
+      "date": "1944-05-18",
+      "title": "Monte Cassino Falls",
+      "description": "Polish forces capture the ruins of Monte Cassino. 985th advances north after months of bitter fighting.",
+      "location": "cassino",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-06-04",
+      "date": "1944-06-04",
+      "title": "Enters Rome",
+      "description": "985th enters Rome with the advancing Allied forces. Rome is the first Axis capital to fall.",
+      "location": "rome",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-06-20",
+      "date": "1944-06-20",
+      "title": "Pursuit North of Rome",
+      "description": "Battalion advances rapidly northward as German forces retreat toward the Gothic Line.",
+      "location": "florence",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-08-04",
+      "date": "1944-08-04",
+      "title": "Reaches Florence Area",
+      "description": "985th arrives in the Florence area as Allies prepare to assault the Gothic Line defenses.",
+      "location": "florence",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-09-10",
+      "date": "1944-09-10",
+      "title": "Gothic Line Assault",
+      "description": "Battalion supports offensive operations against the heavily fortified Gothic Line in the Apennine Mountains.",
+      "location": "florence",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1944-10-20",
+      "date": "1944-10-20",
+      "title": "194 Consecutive Firing Days",
+      "description": "985th reaches milestone of 194 consecutive days firing combat missions, a remarkable endurance record.",
+      "scope": "unit",
+      "source": "On the Target, Statistics"
+    },
+    {
+      "id": "bt-1944-12-25",
+      "date": "1944-12-25",
+      "title": "Second Winter in Italy",
+      "description": "Battalion holds positions in northern Italy through the harsh winter, maintaining fire support capability.",
+      "location": "florence",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1945-04-09",
+      "date": "1945-04-09",
+      "title": "Spring Offensive Begins",
+      "description": "Final Allied offensive in Italy. 985th supports the push across the Po Valley.",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1945-04-21",
+      "date": "1945-04-21",
+      "title": "Bologna Liberated",
+      "description": "Allied forces enter Bologna. 985th advances rapidly as German resistance collapses.",
+      "location": "bologna",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1945-05-02",
+      "date": "1945-05-02",
+      "title": "German Surrender in Italy",
+      "description": "All German forces in Italy surrender unconditionally. 985th ceases combat operations after 510 days.",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1945-05-08",
+      "date": "1945-05-08",
+      "title": "V-E Day",
+      "description": "Victory in Europe Day. Battalion celebrates in northern Italy. John describes gondola ride in Venice.",
+      "location": "venice",
+      "scope": "unit",
+      "source": "On the Target"
+    },
+    {
+      "id": "bt-1945-07-14",
+      "date": "1945-07-14",
+      "title": "French Croix de Guerre",
+      "description": "985th Field Artillery Battalion receives the French Croix de Guerre for distinguished service.",
+      "scope": "unit",
+      "source": "On the Target, Commendations"
+    }
+  ]
+}

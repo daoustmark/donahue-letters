@@ -1,10 +1,31 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import type { Letter, LetterFrontmatter, OnThisDayData } from '@/types/content'
+import type { Letter, LetterFrontmatter, OnThisDayData, HistoricalEvent } from '@/types/content'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content')
 const LETTERS_DIR = path.join(CONTENT_DIR, 'letters')
+
+// Battalion timeline type (for the JSON structure)
+interface BattalionTimelineData {
+  unit: {
+    designation: string
+    branch: string
+    parentUnit: string
+    description: string
+  }
+  statistics: {
+    roundsFired: number
+    daysInCombat: number
+    consecutiveFiringDays: number
+    campaign: string
+  }
+  events: HistoricalEvent[]
+}
+
+interface HistoricalEventsData {
+  events: HistoricalEvent[]
+}
 
 /**
  * Get all letter slugs for static generation
@@ -97,7 +118,7 @@ export function getOnThisDayData(): OnThisDayData {
 
   return {
     letters: getLettersOnThisDay(month, day),
-    events: [], // TODO: Add historical events when we have that data
+    events: getEventsOnThisDay(month, day),
     date: { month, day },
   }
 }
@@ -221,5 +242,82 @@ export function formatShortDate(dateInput: string | Date): string {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
+  })
+}
+
+/**
+ * Get battalion timeline data
+ */
+export function getBattalionTimeline(): BattalionTimelineData {
+  const filePath = path.join(CONTENT_DIR, 'battalion-timeline.json')
+  const fileContents = fs.readFileSync(filePath, 'utf8')
+  return JSON.parse(fileContents)
+}
+
+/**
+ * Get battalion events only
+ */
+export function getBattalionEvents(): HistoricalEvent[] {
+  return getBattalionTimeline().events
+}
+
+/**
+ * Get all historical events (theater and world scope)
+ */
+export function getHistoricalEvents(): HistoricalEvent[] {
+  const filePath = path.join(CONTENT_DIR, 'historical-events.json')
+  const fileContents = fs.readFileSync(filePath, 'utf8')
+  const data: HistoricalEventsData = JSON.parse(fileContents)
+  return data.events
+}
+
+/**
+ * Get all events combined (battalion + historical)
+ */
+export function getAllEvents(): HistoricalEvent[] {
+  const battalion = getBattalionEvents()
+  const historical = getHistoricalEvents()
+  return [...battalion, ...historical].sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  )
+}
+
+/**
+ * Get events near a specific date, grouped by scope
+ */
+export function getEventsNearDate(
+  dateInput: string | Date,
+  withinDays: number = 7
+): {
+  battalion: HistoricalEvent[]
+  theater: HistoricalEvent[]
+  world: HistoricalEvent[]
+} {
+  const targetDate = parseLocalDate(dateInput)
+  const targetTime = targetDate.getTime()
+  const msInDay = 24 * 60 * 60 * 1000
+
+  const allEvents = getAllEvents()
+  const nearbyEvents = allEvents.filter((event) => {
+    const eventTime = parseLocalDate(event.date).getTime()
+    const diff = Math.abs(targetTime - eventTime)
+    return diff <= withinDays * msInDay
+  })
+
+  return {
+    battalion: nearbyEvents.filter((e) => e.scope === 'unit'),
+    theater: nearbyEvents.filter((e) => e.scope === 'theater'),
+    world: nearbyEvents.filter((e) => e.scope === 'world'),
+  }
+}
+
+/**
+ * Get events on a specific month/day (any year) for "On This Day" feature
+ */
+export function getEventsOnThisDay(month: number, day: number): HistoricalEvent[] {
+  const allEvents = getAllEvents()
+  return allEvents.filter((event) => {
+    const eventDate = parseLocalDate(event.date)
+    return eventDate.getMonth() + 1 === month && eventDate.getDate() === day
   })
 }

@@ -1,0 +1,228 @@
+{
+  "events": [
+    {
+      "id": "he-1943-07-10",
+      "date": "1943-07-10",
+      "title": "Allied Invasion of Sicily",
+      "description": "Operation Husky begins the Allied invasion of Sicily, the first step in the Italian Campaign.",
+      "significance": "Opened the Mediterranean to Allied shipping and began the conquest of Italy.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1943-09-03",
+      "date": "1943-09-03",
+      "title": "Italy Surrenders",
+      "description": "Italy signs an armistice with the Allies. German forces immediately occupy the peninsula.",
+      "significance": "Italy's surrender complicated rather than simplified the campaign, as Germany took control.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1943-09-09",
+      "date": "1943-09-09",
+      "title": "Salerno Landing (Operation Avalanche)",
+      "description": "Allied forces land at Salerno, south of Naples. Germans mount fierce counterattacks.",
+      "significance": "The 985th landed at Salerno as part of this operation.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1943-10-01",
+      "date": "1943-10-01",
+      "title": "Naples Liberated",
+      "description": "Allied forces enter Naples after German demolitions devastate the city's port and infrastructure.",
+      "significance": "Naples became the major supply port for the Italian Campaign.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1943-11-01",
+      "date": "1943-11-01",
+      "title": "Winter Line Fighting Begins",
+      "description": "Allies encounter German Winter Line defenses in the mountains south of Rome.",
+      "significance": "Began the grueling winter campaign that would last until spring 1944.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1943-12-15",
+      "date": "1943-12-15",
+      "title": "Battle of San Pietro",
+      "description": "Fierce fighting for the village of San Pietro Infine blocks the approach to the Liri Valley.",
+      "significance": "Costly battle captured in John Huston's famous documentary.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-01-17",
+      "date": "1944-01-17",
+      "title": "First Battle of Monte Cassino",
+      "description": "First major assault on the Gustav Line at Monte Cassino begins. American forces suffer heavy casualties.",
+      "significance": "Began four months of bitter fighting for the monastery hill.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-01-22",
+      "date": "1944-01-22",
+      "title": "Anzio Landing",
+      "description": "Allied forces land at Anzio, behind the Gustav Line, but fail to break out.",
+      "significance": "Intended to outflank Cassino, the landing became a months-long siege.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-02-15",
+      "date": "1944-02-15",
+      "title": "Monte Cassino Abbey Destroyed",
+      "description": "Allied bombers destroy the historic Benedictine monastery atop Monte Cassino.",
+      "significance": "Controversial decision that failed to dislodge German defenders.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-03-15",
+      "date": "1944-03-15",
+      "title": "Third Battle of Monte Cassino",
+      "description": "Massive aerial and artillery bombardment followed by New Zealand and Indian assault on Cassino town.",
+      "significance": "Despite destroying the town, Allies failed to take the position.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-05-11",
+      "date": "1944-05-11",
+      "title": "Operation Diadem",
+      "description": "Final Allied offensive to break the Gustav Line. Massive multinational assault along entire front.",
+      "significance": "The breakthrough that finally ended the Cassino stalemate.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-05-18",
+      "date": "1944-05-18",
+      "title": "Monte Cassino Falls",
+      "description": "Polish forces capture the ruins of Monte Cassino after four months of Allied assaults.",
+      "significance": "Opened the road to Rome after one of the war's most costly battles.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-05-25",
+      "date": "1944-05-25",
+      "title": "Anzio Breakout",
+      "description": "Forces at Anzio finally break out and link up with the main Allied advance.",
+      "significance": "Ended the four-month siege at Anzio beachhead.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-06-04",
+      "date": "1944-06-04",
+      "title": "Liberation of Rome",
+      "description": "Allied forces enter Rome, the first Axis capital to fall. Germans retreat northward.",
+      "significance": "Major propaganda victory, though overshadowed by D-Day two days later.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-06-06",
+      "date": "1944-06-06",
+      "title": "D-Day: Normandy Invasion",
+      "description": "Operation Overlord begins with Allied landings in Normandy, France.",
+      "significance": "Opened the Western Front; shifted strategic focus away from Italy.",
+      "scope": "world"
+    },
+    {
+      "id": "he-1944-08-04",
+      "date": "1944-08-04",
+      "title": "Florence Liberated",
+      "description": "Allied forces enter Florence as Germans retreat to the Gothic Line.",
+      "significance": "Cultural treasures preserved as Germans spared the historic center.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-08-25",
+      "date": "1944-08-25",
+      "title": "Paris Liberated",
+      "description": "French and American forces liberate Paris after four years of German occupation.",
+      "significance": "Major milestone in the liberation of Western Europe.",
+      "scope": "world"
+    },
+    {
+      "id": "he-1944-09-10",
+      "date": "1944-09-10",
+      "title": "Gothic Line Assault Begins",
+      "description": "Allies attack the Gothic Line, Germany's last major defensive line in Italy.",
+      "significance": "Began the final phase of the Italian Campaign.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1944-12-16",
+      "date": "1944-12-16",
+      "title": "Battle of the Bulge",
+      "description": "German counteroffensive in the Ardennes catches Allies by surprise.",
+      "significance": "Last major German offensive of the war diverted resources from Italy.",
+      "scope": "world"
+    },
+    {
+      "id": "he-1945-02-04",
+      "date": "1945-02-04",
+      "title": "Yalta Conference",
+      "description": "Roosevelt, Churchill, and Stalin meet to plan the postwar world.",
+      "significance": "Shaped the post-war order in Europe.",
+      "scope": "world"
+    },
+    {
+      "id": "he-1945-04-09",
+      "date": "1945-04-09",
+      "title": "Spring Offensive in Italy",
+      "description": "Final Allied offensive in Italy begins, breaking through Gothic Line remnants.",
+      "significance": "Led to the complete collapse of German forces in Italy.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1945-04-12",
+      "date": "1945-04-12",
+      "title": "President Roosevelt Dies",
+      "description": "Franklin D. Roosevelt dies at Warm Springs, Georgia. Harry Truman becomes President.",
+      "significance": "Loss of wartime leader just weeks before victory in Europe.",
+      "scope": "world"
+    },
+    {
+      "id": "he-1945-04-21",
+      "date": "1945-04-21",
+      "title": "Bologna Liberated",
+      "description": "Polish and Italian forces liberate Bologna as German resistance collapses in northern Italy.",
+      "significance": "Opened the Po Valley to rapid Allied advance.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1945-04-28",
+      "date": "1945-04-28",
+      "title": "Mussolini Executed",
+      "description": "Italian dictator Benito Mussolini captured and executed by Italian partisans.",
+      "significance": "End of Fascism in Italy.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1945-04-30",
+      "date": "1945-04-30",
+      "title": "Hitler Dies",
+      "description": "Adolf Hitler commits suicide in his Berlin bunker as Soviet forces close in.",
+      "significance": "End of Nazi leadership.",
+      "scope": "world"
+    },
+    {
+      "id": "he-1945-05-02",
+      "date": "1945-05-02",
+      "title": "German Forces Surrender in Italy",
+      "description": "All German forces in Italy surrender unconditionally to the Allies.",
+      "significance": "End of combat operations for the 985th after 510 days of combat.",
+      "scope": "theater"
+    },
+    {
+      "id": "he-1945-05-08",
+      "date": "1945-05-08",
+      "title": "V-E Day",
+      "description": "Victory in Europe Day marks the unconditional surrender of Nazi Germany.",
+      "significance": "End of the war in Europe; celebrations worldwide.",
+      "scope": "world"
+    },
+    {
+      "id": "he-1945-08-15",
+      "date": "1945-08-15",
+      "title": "V-J Day",
+      "description": "Japan announces surrender following atomic bombs on Hiroshima and Nagasaki.",
+      "significance": "End of World War II.",
+      "scope": "world"
+    }
+  ]
+}

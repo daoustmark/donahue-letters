@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getAllLetterSlugs, getLetterBySlug, getAdjacentLetters, formatLetterDate } from '@/lib/content'
+import { getAllLetterSlugs, getLetterBySlug, getAdjacentLetters, formatLetterDate, getEventsNearDate } from '@/lib/content'
+import { HistoricalContextPanel } from '@/components/historical-context'
 import type { Letter } from '@/types/content'
 import type { Metadata } from 'next'
 
@@ -267,19 +268,37 @@ export default function LetterPage({ params }: { params: { slug: string } }) {
     notFound()
   }
 
+  // Get historical events near the letter's date
+  const nearbyEvents = getEventsNearDate(letter.date, 7)
+
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <Breadcrumbs letter={letter} />
 
-      <article className="paper p-8 md:p-12">
-        <LetterHeader letter={letter} />
-        <LetterContent content={letter.content} />
-        <ThemeTags themes={letter.themes} />
-        <PeopleMentioned people={letter.people_mentioned} />
-        <SourceInfo letter={letter} />
-      </article>
+      <div className="lg:grid lg:grid-cols-[1fr,320px] lg:gap-8">
+        {/* Main letter content */}
+        <div>
+          <article className="paper p-8 md:p-12">
+            <LetterHeader letter={letter} />
+            <LetterContent content={letter.content} />
+            <ThemeTags themes={letter.themes} />
+            <PeopleMentioned people={letter.people_mentioned} />
+            <SourceInfo letter={letter} />
+          </article>
 
-      <LetterNavigation slug={params.slug} />
+          <LetterNavigation slug={params.slug} />
+        </div>
+
+        {/* Historical context sidebar */}
+        <div className="mt-8 lg:mt-0">
+          <HistoricalContextPanel
+            battalionEvents={nearbyEvents.battalion}
+            theaterEvents={nearbyEvents.theater}
+            worldEvents={nearbyEvents.world}
+            letterDate={typeof letter.date === 'string' ? letter.date : letter.date.toISOString().split('T')[0]}
+          />
+        </div>
+      </div>
     </div>
   )
 }
